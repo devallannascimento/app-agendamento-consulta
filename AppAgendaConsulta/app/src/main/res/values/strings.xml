@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">App AgendaConsulta</string>
+    <string name="text_menu_agendar">Agendar</string>
+    <string name="text_menu_agendamentos">Agendamentos</string>
+    <string name="text_menu_perfil">Perfil</string>
+
+    <!-- Fragment Perfil -->
+    <string name="perfil">Meu perfil</string>
+
+    <!-- Fragment Agendar -->
+    <string name="agendar">Agendar consulta</string>
+    <string name="especialidades">Especialidades</string>
+
+    <array name="especialidades_array">
+        <item>Cardiologia</item>
+        <item>Dermatologia</item>
+        <item>Ortopedia</item>
+        <item>Neurologia</item>
+        <item>Oftalmologia</item>
+        <item>Pediatria</item>
+        <item>Oncologia</item>
+        <item>Ginecologia</item>
+    </array>
+
+
+</resources>
