@@ -34,16 +34,15 @@
     </androidx.appcompat.widget.Toolbar>
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spinnerEspecialidades"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textEspecialidades"
-        tools:ignore="TouchTargetSizeCheck" />
+        app:layout_constraintTop_toBottomOf="@+id/textEspecialidades" />
 
     <TextView
         android:id="@+id/textEspecialidades"
@@ -53,7 +52,7 @@
         android:text="@string/especialidades"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/spinner"
+        app:layout_constraintStart_toStartOf="@+id/spinnerEspecialidades"
         app:layout_constraintTop_toBottomOf="@+id/toolbarAgendamento" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

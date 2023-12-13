@@ -11,8 +11,8 @@
     <string name="agendar">Agendar consulta</string>
     <string name="especialidades">Especialidades</string>
 
-    <array name="especialidades_array">
-        <item>Cardiologia</item>
+    <string-array name="especialidades_array">
+        <item>Selecione uma categoria</item>
         <item>Dermatologia</item>
         <item>Ortopedia</item>
         <item>Neurologia</item>
@@ -20,7 +20,9 @@
         <item>Pediatria</item>
         <item>Oncologia</item>
         <item>Ginecologia</item>
-    </array>
+    </string-array>
 
+    <!-- Fragment Agendamentos -->
+    <string name="agendamentos">Meus agendamentos</string>
 
 </resources>
