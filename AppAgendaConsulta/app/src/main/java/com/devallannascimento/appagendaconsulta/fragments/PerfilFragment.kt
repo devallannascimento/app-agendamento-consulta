@@ -53,7 +53,11 @@ class PerfilFragment : Fragment() {
         binding.btnSalvar.setOnClickListener {
 
             val email = binding.editEmail.text.toString()
+            val nome = binding.editNome.text.toString()
+            val sobrenome = binding.editSobrenome.text.toString()
 
+            validadorNome(nome)
+            validadorNome(sobrenome)
             validadorEmail(email)
             recuperarDados()
 
@@ -95,6 +99,24 @@ class PerfilFragment : Fragment() {
         } catch (e: NumberFormatException) {
             Log.i("info_projeto", "recuperarDado: ERRO [$e] ")
         }
+    }
+
+    private fun validadorNome(nome: String) {
+
+        fun validarNome(nome: String): Boolean {
+            // Utiliza uma expressão regular para permitir apenas letras com ou sem acento
+            val regex = Regex("[^a-zA-ZÀ-ÖØ-öø-ÿ]")
+            return !regex.containsMatchIn(nome)
+        }
+
+        if (nome.isNotEmpty() && validarNome(nome)) {
+            binding.TextInputLayoutNome.isErrorEnabled = false
+        } else {
+            binding.TextInputLayoutNome.isErrorEnabled = true
+            binding.TextInputLayoutNome.error = getString(R.string.nome_invalido)
+            Toast.makeText(requireContext(), "Nome invalído", Toast.LENGTH_SHORT).show()
+        }
+
     }
 
 
