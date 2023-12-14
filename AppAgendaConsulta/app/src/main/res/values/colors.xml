@@ -5,5 +5,6 @@
 
     //Cores personalizadas
     <color name="corPrimaria">#1476E6</color>
+    <color name="vermelho">#FF0000</color>
 
 </resources>

@@ -42,10 +42,18 @@ android {
 
 dependencies {
 
+    //Dependências lifecycle
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
+
+    //Dependência do Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    //CircleImageView - https://github.com/hdodenhof/CircleImageView
     implementation("de.hdodenhof:circleimageview:3.1.0")
 
-    implementation("de.hdodenhof:circleimageview:3.1.0")
-    implementation("de.hdodenhof:circleimageview:3.1.0")
+    //Maskara - https://github.com/santalu/maskara
+    implementation("com.github.santalu:maskara:1.0.0")
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")

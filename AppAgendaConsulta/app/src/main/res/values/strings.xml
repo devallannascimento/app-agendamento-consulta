@@ -6,6 +6,7 @@
 
     <!-- Fragment Perfil -->
     <string name="perfil">Meu perfil</string>
+    <string name="email_invalido">Insira um endereço de e-mail válido</string>
 
     <!-- Fragment Agendar -->
     <string name="agendar">Agendar consulta</string>

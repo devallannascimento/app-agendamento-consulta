@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,7 +16,7 @@
             android:id="@+id/toolbarPerfil"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
+            android:background="@color/corPrimaria"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -35,36 +34,37 @@
         </androidx.appcompat.widget.Toolbar>
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_image"
+            android:id="@+id/imageLogo"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:src="@drawable/perfil"
-            app:civ_border_color="?attr/colorPrimary"
+            app:civ_border_color="@color/corPrimaria"
             app:civ_border_width="2dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbarPerfil" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/editNome"
+            android:id="@+id/TextInputLayoutNome"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profile_image">
+            app:layout_constraintTop_toBottomOf="@id/imageLogo">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editNome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nome" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/editSobrenome"
+            android:id="@+id/TextInputLayoutSobrenome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -73,17 +73,18 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editNome"
+            app:layout_constraintTop_toBottomOf="@+id/TextInputLayoutNome"
             app:layout_constraintVertical_bias="0.0">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editSobrenome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Último nome" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/editEmail"
+            android:id="@+id/TextInputLayoutEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -92,16 +93,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editSobrenome">
+            app:layout_constraintTop_toBottomOf="@+id/TextInputLayoutSobrenome">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="E-mail" />
+                android:hint="E-mail"
+                android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/editCPF"
+            android:id="@+id/TextInputLayoutCpf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -109,17 +112,21 @@
             android:layout_marginEnd="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editEmail">
+            app:layout_constraintTop_toBottomOf="@+id/TextInputLayoutEmail">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <com.santalu.maskara.widget.MaskEditText
+                android:id="@+id/editCpf"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="CPF"
-                android:inputType="number" />
+                android:inputType="number"
+                app:mask="___.___.___-__"
+                app:maskCharacter="_"
+                app:maskStyle="normal" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/editTelefone"
+            android:id="@+id/TextInputLayouTelefone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -127,16 +134,21 @@
             android:layout_marginEnd="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editCPF">
+            app:layout_constraintTop_toBottomOf="@+id/TextInputLayoutCpf">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <com.santalu.maskara.widget.MaskEditText
+                android:id="@+id/editTelefone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Telefone" />
+                android:hint="Telefone"
+                android:inputType="phone"
+                app:mask="(__) _____-____"
+                app:maskCharacter="_"
+                app:maskStyle="normal" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/editNascimento"
+            android:id="@+id/TextInputLayoutNascimento"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -144,17 +156,21 @@
             android:layout_marginEnd="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTelefone">
+            app:layout_constraintTop_toBottomOf="@+id/TextInputLayouTelefone">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <com.santalu.maskara.widget.MaskEditText
+                android:id="@+id/editNascimento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Data de nascimento"
-                android:inputType="datetime|date" />
+                android:inputType="datetime|date"
+                app:mask="__/__/____"
+                app:maskCharacter="_"
+                app:maskStyle="normal" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/editRG"
+            android:id="@+id/TextInputLayoutRG"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -162,13 +178,32 @@
             android:layout_marginEnd="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editNascimento">
+            app:layout_constraintTop_toBottomOf="@+id/TextInputLayoutNascimento">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <com.santalu.maskara.widget.MaskEditText
+                android:id="@+id/editRG"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="RG" />
+                android:hint="RG"
+                android:inputType="number"
+                app:mask="__.___.___-_"
+                app:maskCharacter="_"
+                app:maskStyle="normal" />
+
         </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnSalvar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:text="Salvar alterações"
+            app:cornerRadius="3dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TextInputLayoutRG" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -56,8 +56,6 @@ class AgendarFragment : Fragment() {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 val selectedItem = parent?.getItemAtPosition(position).toString()
 
-                Log.i("info_projeto", "Item selecionado: $selectedItem")
-
                 // Verifique se a categoria selecionada não é "Selecione uma categoria"
                 if (selectedItem != "Selecione uma categoria") {
                     Toast.makeText(requireContext(), "Categoria selecionada: $selectedItem", Toast.LENGTH_SHORT).show()

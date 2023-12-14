@@ -1,7 +1,6 @@
 package com.devallannascimento.appagendaconsulta.view
 
 import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -9,51 +8,41 @@ import android.os.Looper
 import android.util.Log
 import android.util.Patterns
 import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
 import com.devallannascimento.appagendaconsulta.R
-import com.devallannascimento.appagendaconsulta.databinding.ActivityHomeBinding
-import com.devallannascimento.appagendaconsulta.databinding.ActivityLoginBinding
+import com.devallannascimento.appagendaconsulta.databinding.ActivityMainBinding
+import com.devallannascimento.appagendaconsulta.databinding.ActivityRegistroBinding
 
-class LoginActivity : AppCompatActivity() {
+class RegistroActivity : AppCompatActivity() {
 
     private val binding by lazy {
-        ActivityLoginBinding.inflate(layoutInflater)
+        ActivityRegistroBinding.inflate(layoutInflater)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        binding.btnRegistrar.setOnClickListener {
-
-            val email = binding.editEmail.text.toString()
-
-            validadorEmail(email)
-
+        binding.textFacaLogin.setOnClickListener {
             val handler = Handler(Looper.getMainLooper()).postDelayed({
-                val intent = Intent(this, HomeActivity::class.java)
+                val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
                 Log.i("info_debug", "Activity Home Cumutada")
                 finish()
             }, 0)
         }
 
-        binding.textRecuperar.setOnClickListener {
-
-            val handler = Handler(Looper.getMainLooper()).postDelayed({
-                val intent = Intent(this, SenhaActivity::class.java)
-                startActivity(intent)
-                Log.i("info_debug", "Activity Recuperar Senha Cumutada")
-            }, 0)
-
+        binding.textVoltar.setOnClickListener {
+            finish()
         }
 
-        binding.textRegistro.setOnClickListener {
-            val handler = Handler(Looper.getMainLooper()).postDelayed({
-                val intent = Intent(this, RegistroActivity::class.java)
-                startActivity(intent)
-                Log.i("info_debug", "Activity Recuperar Senha Cumutada")
-            }, 0)
+        binding.btnRegistrar.setOnClickListener {
+
+            val email = binding.editEmail.text.toString()
+            validadorEmail(email)
+
+            recuperarDados()
+
+            finish()
         }
 
     }
@@ -72,6 +61,25 @@ class LoginActivity : AppCompatActivity() {
             Toast.makeText(this, "E-mail invalído", Toast.LENGTH_SHORT).show()
         }
 
+    }
+
+    private fun recuperarDados() {
+        try {
+            val cpf = binding.editCpf.text.toString()
+
+            // Remover caracteres não numéricos, exceto zeros à esquerda
+            val cpfNumerico = cpf.replace("\\D".toRegex(), "")
+
+            // Verificar se a string não está vazia
+            if (cpfNumerico.isNotEmpty()) {
+
+                Log.i("info_projeto", "recuperarDado: $cpfNumerico ")
+            } else {
+                Log.i("info_projeto", "recuperarDado: CPF vazio")
+            }
+        } catch (e: NumberFormatException) {
+            Log.i("info_projeto", "recuperarDado: ERRO [$e] ")
+        }
     }
 
 }
