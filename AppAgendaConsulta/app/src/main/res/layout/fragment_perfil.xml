@@ -38,6 +38,7 @@
             android:layout_width="160dp"
             android:layout_height="160dp"
             android:layout_marginTop="16dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/perfil"
             app:civ_border_color="@color/corPrimaria"
             app:civ_border_width="2dp"
@@ -60,7 +61,9 @@
                 android:id="@+id/editNome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nome" />
+                android:enabled="false"
+                android:hint="Nome"
+                android:text="Állan" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -80,7 +83,9 @@
                 android:id="@+id/editSobrenome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Último nome" />
+                android:enabled="false"
+                android:hint="Último nome"
+                android:text="Santos" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -99,8 +104,10 @@
                 android:id="@+id/editEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:enabled="false"
                 android:hint="E-mail"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:text="allannascimento@gmail.com" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -118,31 +125,11 @@
                 android:id="@+id/editCpf"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:enabled="false"
                 android:hint="CPF"
                 android:inputType="number"
+                android:text="070.800.025-15"
                 app:mask="___.___.___-__"
-                app:maskCharacter="_"
-                app:maskStyle="normal" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/TextInputLayouTelefone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="24dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TextInputLayoutCpf">
-
-            <com.santalu.maskara.widget.MaskEditText
-                android:id="@+id/editTelefone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Telefone"
-                android:inputType="phone"
-                app:mask="(__) _____-____"
                 app:maskCharacter="_"
                 app:maskStyle="normal" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -156,40 +143,42 @@
             android:layout_marginEnd="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TextInputLayouTelefone">
+            app:layout_constraintTop_toBottomOf="@+id/TextInputLayoutCpf">
 
             <com.santalu.maskara.widget.MaskEditText
                 android:id="@+id/editNascimento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:enabled="false"
                 android:hint="Data de nascimento"
                 android:inputType="datetime|date"
+                android:text="19/06/2003"
                 app:mask="__/__/____"
                 app:maskCharacter="_"
                 app:maskStyle="normal" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/TextInputLayoutRG"
-            android:layout_width="0dp"
+            android:id="@+id/TextInputLayouTelefone"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TextInputLayoutNascimento">
+            app:layout_constraintTop_toBottomOf="@id/TextInputLayoutNascimento">
 
             <com.santalu.maskara.widget.MaskEditText
-                android:id="@+id/editRG"
+                android:id="@+id/editTelefone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="RG"
-                android:inputType="number"
-                app:mask="__.___.___-_"
+                android:hint="Telefone"
+                android:inputType="phone"
+                android:text="(73) 99901-1011"
+                app:mask="(__) _____-____"
                 app:maskCharacter="_"
                 app:maskStyle="normal" />
-
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
@@ -203,7 +192,7 @@
             app:cornerRadius="3dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TextInputLayoutRG" />
+            app:layout_constraintTop_toBottomOf="@+id/TextInputLayouTelefone" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
